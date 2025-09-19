@@ -1,0 +1,22 @@
+includes:
+    - vendor/larastan/larastan/extension.neon
+
+parameters:
+
+    paths:
+        - app
+
+    # Level 9 is the highest level
+    level: 5
+
+    ignoreErrors:
+        - '#PHPDoc tag @SuppressWarnings has invalid value#'
+        - '#Access to property \$id on an unknown class App\\Models\\User#'
+        - '#Return type .* of method Shared\\Eloquent\\BaseModel::newCollection\(\) should be compatible with return type#'
+        - '#Return type .* of method Shared\\Eloquent\\BaseModelAuthenticatable::newCollection\(\) should be compatible with return type#'
+        - '#.* an unknown class App\\Models\\User#'
+
+#    excludePaths:
+#        - ./*/*/FileToBeExcluded.php
+#
+#    checkMissingIterableValueType: false

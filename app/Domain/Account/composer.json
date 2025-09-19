@@ -1,0 +1,26 @@
+{
+    "$schema": "https://getcomposer.org/schema.json",
+    "name": "app/account",
+    "type": "library",
+    "autoload": {
+        "psr-4": {
+            "Account\\": "/"
+        },
+        "files": [
+            "Helpers/General.php"
+        ]
+    },
+    "require": {
+        "php": "^8.2",
+        "laravel/framework": "^12.0",
+        "owen-it/laravel-auditing": "^14.0",
+        "spatie/laravel-data": "^4.17"
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Account\\Providers\\AccountServiceProvider"
+            ]
+        }
+    }
+}
