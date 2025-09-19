@@ -82,7 +82,7 @@ return [
     */
 
     'exclude' => [
-        //
+        'app/Support/Providers/',
     ],
 
     'add' => [
@@ -142,7 +142,7 @@ return [
 
         CyclomaticComplexityIsHigh::class => [
             'exclude' => [
-                'app/Http/Middleware/IdempotencyMiddleware.php',
+                'app/Support/Http/Middleware/IdempotencyMiddleware.php',
                 'app/Applications/Admin/Http/Controllers/HealthCheckController.php',
                 'app/Domain/Shared/Rules/Comparable/ComparableRule.php',
                 'app/Domain/Shared/Providers/Concerns/LoadCommands.php',
@@ -157,6 +157,7 @@ return [
                 'Applications/Admin/Notifications',
                 'Models/Scopes',
                 'app/Casts',
+                'Database/Factories',
             ],
         ],
     ],

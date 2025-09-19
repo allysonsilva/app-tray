@@ -4,7 +4,11 @@ declare(strict_types=1);
 
 namespace Sale\Models;
 
+use Illuminate\Database\Eloquent\Attributes\UseFactory;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Notifications\Notifiable;
+use Sale\Database\Factories\SellerFactory;
 use Shared\Eloquent\BaseModel;
 
 /**
@@ -18,9 +22,11 @@ use Shared\Eloquent\BaseModel;
  *
  * @property-read \Illuminate\Database\Eloquent\Collection<Sale> $salles
  */
+#[UseFactory(SellerFactory::class)]
 class Seller extends BaseModel
 {
     use Notifiable;
+    use HasFactory;
 
     /**
      * The attributes that are mass assignable.
@@ -41,4 +47,9 @@ class Seller extends BaseModel
     protected $hidden = [
         'password',
     ];
+
+    public function salles(): HasMany
+    {
+        return $this->hasMany(Sale::class);
+    }
 }

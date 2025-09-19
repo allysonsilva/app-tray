@@ -28,8 +28,6 @@ final class SaleStoreData extends BaseDataResource
     ) {
         $this->commissionRate = (float) seller()->commission_percentage;
 
-        $this->commissionAmount = intval(round(
-            floatval(bcmul((string) $this->amount, bcdiv((string) $this->commissionRate, '100', 3), 3))
-        ));
+        $this->commissionAmount = proportional_amount($this->amount, $this->commissionRate);
     }
 }

@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Account\Models;
 
+use Account\Database\Factories\AdminFactory;
 use Illuminate\Database\Eloquent\Attributes\Scope;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -64,5 +65,15 @@ class Admin extends BaseModelAuthenticatable
     protected function notifiable(Builder $query): void
     {
         $query->where('is_notifiable', true);
+    }
+
+    /**
+     * Create a new factory instance for the model.
+     *
+     * @return \Illuminate\Database\Eloquent\Factories\Factory
+     */
+    protected static function newFactory()
+    {
+        return AdminFactory::new();
     }
 }

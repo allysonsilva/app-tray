@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Tests;
 
-use App\Models\User;
+use Account\Models\Seller;
 use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Foundation\Testing\TestCase as BaseTestCase;
 use Illuminate\Routing\Middleware\ThrottleRequests;
@@ -17,7 +17,8 @@ abstract class TestCase extends BaseTestCase
     use WithFaker;
     use CustomMacros;
 
-    public const EMAIL_USER_0 = 'user_0@example.org';
+    public const EMAIL_SELLER_0 = 'seller0@example.org';
+    public const EMAIL_ADMIN_0 = 'admin0@example.org';
 
     /**
      * Boot the testing helper traits.
@@ -38,9 +39,9 @@ abstract class TestCase extends BaseTestCase
         return $uses;
     }
 
-    protected function userAuth(): User
+    protected function sellerAuth(): Seller
     {
-        return User::where('email', static::EMAIL_USER_0)->firstOrFail();
+        return Seller::where('email', static::EMAIL_SELLER_0)->firstOrFail();
     }
 
     protected function withoutMiddlewareDependencies(): static

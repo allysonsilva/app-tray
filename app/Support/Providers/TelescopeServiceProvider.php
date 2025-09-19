@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace App\Providers;
+namespace App\Support\Providers;
 
 use Illuminate\Support\Str;
 use Laravel\Telescope\EntryType;

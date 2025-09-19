@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace App\Providers;
+namespace App\Support\Providers;
 
 use Spatie\Health\Facades\Health;
 use Illuminate\Support\ServiceProvider;

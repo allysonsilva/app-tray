@@ -5,7 +5,10 @@ declare(strict_types=1);
 namespace Sale\Models;
 
 use Account\Models\Concerns\SellerAuthenticatable;
+use Illuminate\Database\Eloquent\Attributes\UseFactory;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Sale\Database\Factories\SaleFactory;
 use Shared\Eloquent\BaseModel;
 
 /**
@@ -24,9 +27,11 @@ use Shared\Eloquent\BaseModel;
  *
  * @property-read Seller $seller
  */
+#[UseFactory(SaleFactory::class)]
 class Sale extends BaseModel
 {
     use SellerAuthenticatable;
+    use HasFactory;
 
     /**
      * The attributes that are mass assignable.
